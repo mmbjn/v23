@@ -26,7 +26,8 @@
         const cutSize = cutVertical ? 'w' : 'h'
         const cutAxis = cutVertical ? 'x' : 'y'
         if (cutSide > this.gridMin * 2) {
-          const rect1Size = randomInRange(this.gridMin, cutSide - this.gridMin)
+          const rect1Size = 6 // randomInRange(this.gridMin, cutSide - this.gridMin)
+          console.log('rect1Size', rect1Size)
           const rect1 = Object.assign({}, currentRect, { [cutSize]: rect1Size })
           const rect2 = Object.assign({}, currentRect, { [cutAxis]: currentRect[cutAxis] + rect1Size, [cutSize]: currentRect[cutSize] - rect1Size })
           this.currentRects.push(rect1, rect2)
@@ -160,7 +161,7 @@
     // Get image Sprite
     const image = images[index]
     // Set the url to get a random image from Unsplash Source, given image dimensions
-    const url = `https://source.unsplash.com/random/${image.width}x${image.height}`
+    const url = `img/${Math.floor(Math.random() * 53 + 1)}.png?1` 
     // Get the corresponding rect, to store more data needed (it is a normal Object)
     const rect = rects[index]
     // Create a new AbortController, to abort fetch if needed
@@ -303,10 +304,12 @@
     initUniforms()
     initGrid()
     initApp()
-    initBackground()
+    //initBackground()
     initContainer()
     initRectsAndImages()
     initEvents()
+
+    console.log(rects)
 
     // Animation loop
     // Code here will be executed on every animation frame
