@@ -26,7 +26,7 @@
         const cutSize = cutVertical ? 'w' : 'h'
         const cutAxis = cutVertical ? 'x' : 'y'
         if (cutSide > this.gridMin * 2) {
-          const rect1Size = 6 // randomInRange(this.gridMin, cutSide - this.gridMin)
+          const rect1Size = 4 // randomInRange(this.gridMin, cutSide - this.gridMin)
           console.log('rect1Size', rect1Size)
           const rect1 = Object.assign({}, currentRect, { [cutSize]: rect1Size })
           const rect2 = Object.assign({}, currentRect, { [cutAxis]: currentRect[cutAxis] + rect1Size, [cutSize]: currentRect[cutSize] - rect1Size })
